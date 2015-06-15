@@ -1,1 +1,1 @@
-# sample.basicCalc
+# sample.appclient.basiccalc
