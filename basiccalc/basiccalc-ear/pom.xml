@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>net.wasdev.wlp.sample</groupId>
+        <artifactId>basiccalc</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>net.wasdev.wlp.sample</groupId>
+    <artifactId>basiccalc-ear</artifactId>
+    <packaging>ear</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>WAS Liberty Sample - Application Client Basic Calculator Sample Application</name>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>https://raw.github.com/WASdev/sample.async.websockets/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <dependencies>
+      <dependency>
+        <groupId>net.wasdev.wlp.sample</groupId>
+        <artifactId>basiccalc-client</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <type>app-client</type>
+      </dependency>
+      <dependency>
+        <groupId>net.wasdev.wlp.sample</groupId>
+        <artifactId>basiccalc-ejb</artifactId>
+        <type>ejb</type>
+      </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <modules>
+                        <ejbModule>
+                            <groupId>net.wasdev.wlp.sample</groupId>
+                            <artifactId>basiccalc-ejb</artifactId>
+                        </ejbModule>
+<!--
+                        <appClientModule>
+                            <groupId>net.wasdev.wlp.sample</groupId>
+                            <artifactId>basiccalc-client</artifactId>
+                        </appClientModule>
+-->
+                    </modules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-acr-plugin</artifactId>
+                <version>1.0</version>
+                <extensions>true</extensions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
