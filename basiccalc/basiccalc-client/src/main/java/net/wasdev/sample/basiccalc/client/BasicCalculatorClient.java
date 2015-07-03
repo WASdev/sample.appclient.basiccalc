@@ -99,7 +99,6 @@ public class BasicCalculatorClient {
     Context context = new InitialContext();
 		printMessage("--Looking-up BasicCalculator... ");
 		Object obj = context.lookup("java:comp/env/ejb/BasicCalculator");
-    //Object obj = context.lookup("java:global/basiccalc-ear-1.0/basiccalc-ejb/BasicCalculatorSessionBeanRemote");
     printMessage("--Narrowing... ");
 		return (BasicCalculatorSessionBeanRemote)obj;
   }

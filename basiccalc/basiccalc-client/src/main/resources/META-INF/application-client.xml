@@ -5,11 +5,8 @@
       <display-name>basiccalc-client</display-name>
       <ejb-ref id="EjbRef_1">
          <ejb-ref-name>ejb/BasicCalculator</ejb-ref-name>
-         <lookup-name>java:global/basiccalc-ear-1.0/basiccalc-ejb/BasicCalculatorSessionBean!net.wasdev.sample.basiccalc.ejb.BasicCalculatorSessionBeanRemote</lookup-name>
+         <lookup-name>java:global/basiccalc-ear/basiccalc-ejb/BasicCalculatorSessionBean!net.wasdev.sample.basiccalc.ejb.BasicCalculatorSessionBeanRemote</lookup-name>
          <ejb-ref-type>Session</ejb-ref-type>
          <remote>net.wasdev.sample.basiccalc.ejb.BasicCalculatorSessionBeanRemote</remote>
-<!--
-         <ejb-link>BasicCalculator</ejb-link>
--->         
       </ejb-ref>
    </application-client>

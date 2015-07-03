@@ -13,7 +13,7 @@
     <groupId>net.wasdev.wlp.sample</groupId>
     <artifactId>basiccalc-ear</artifactId>
     <packaging>ear</packaging>
-    <version>1.0</version>   
+    <version>1.0</version>
     <name>WAS Liberty Sample - Application Client Basic Calculator Sample Application</name>
 
     <licenses>
@@ -43,6 +43,8 @@
             <plugin>
                 <artifactId>maven-ear-plugin</artifactId>
                 <configuration>
+                    <applicationName>basiccalc-ear</applicationName>
+                    <version>6</version>
                     <modules>
                         <ejbModule>
                             <groupId>net.wasdev.wlp.sample</groupId>
