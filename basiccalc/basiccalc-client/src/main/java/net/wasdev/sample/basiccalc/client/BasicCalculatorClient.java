@@ -66,9 +66,14 @@ public class BasicCalculatorClient {
       return;
     }
 
-    BasicCalculatorSessionBeanRemote basicCalc = getBasicCalculatorRemoteEJB();
-    BasicCalculatorClientResult calcResult = calculate(basicCalc,operation,(double)operand1,(double)operand2);
-    printMessage("Result: " + numberFormat.format( new Double (calcResult.getOperand1())) + calcResult.getOperation() + numberFormat.format(new Double(calcResult.getOperand2())) + " = " + numberFormat.format(new Double (calcResult.getResult())) );
+		try {
+			BasicCalculatorSessionBeanRemote basicCalc = basicCalc = getBasicCalculatorRemoteEJB();
+    	BasicCalculatorClientResult calcResult = calculate(basicCalc,operation,(double)operand1,(double)operand2);
+    	printMessage("Result: " + numberFormat.format( new Double (calcResult.getOperand1())) + calcResult.getOperation() + numberFormat.format(new Double(calcResult.getOperand2())) + " = " + numberFormat.format(new Double (calcResult.getResult())) );
+			printMessage("Good bye.\n");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
   }
 
   private void printUsageSyntax() {
@@ -82,7 +87,7 @@ public class BasicCalculatorClient {
       printMessage(message);
       printMessage("  Correct syntax: <Launch Arguments> <Operation> Operand1 Operand2");
       printMessage("     <Operation>: add | subtract | multiply | divide");
-      printMessage("  Example: client basiccalc basiccalc.ear -- add 2 3");
+      printMessage("  Example: client basiccalc -- add 2 3");
   }
 
   private void printMessage(String message) {
@@ -90,9 +95,13 @@ public class BasicCalculatorClient {
   }
 
   private BasicCalculatorSessionBeanRemote getBasicCalculatorRemoteEJB() throws NamingException {
+		printMessage("\n--Creating InitialContext... ");
     Context context = new InitialContext();
-    Object obj = context.lookup("java:global/basiccalc-ear/basiccalc-ejb/BasicCalculatorSessionBeanRemote");
-    return (BasicCalculatorSessionBeanRemote)obj;
+		printMessage("--Looking-up BasicCalculator... ");
+		Object obj = context.lookup("java:comp/env/ejb/BasicCalculator");
+    //Object obj = context.lookup("java:global/basiccalc-ear-1.0/basiccalc-ejb/BasicCalculatorSessionBeanRemote");
+    printMessage("--Narrowing... ");
+		return (BasicCalculatorSessionBeanRemote)obj;
   }
 
   private BasicCalculatorClientResult calculate(BasicCalculatorSessionBeanRemote basicCalc, String operation, double operand1, double operand2) throws Exception {

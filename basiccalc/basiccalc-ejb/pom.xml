@@ -11,7 +11,7 @@
 
   <artifactId>basiccalc-ejb</artifactId>
   <packaging>ejb</packaging>
-  <name>WAS Liberty Sample - Application Client Basic Calculator Sample EJB</name>
+  <name>WAS Liberty Sample - Application Client Basic Calculator Sample for EJB</name>
 
   <dependencies>
 <!--
@@ -21,7 +21,7 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
--->    
+-->
     <dependency>
       <groupId>javax</groupId>
       <artifactId>javaee-api</artifactId>
