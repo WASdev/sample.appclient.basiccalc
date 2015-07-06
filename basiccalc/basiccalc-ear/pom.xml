@@ -13,13 +13,13 @@
     <groupId>net.wasdev.wlp.sample</groupId>
     <artifactId>basiccalc-ear</artifactId>
     <packaging>ear</packaging>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
     <name>WAS Liberty Sample - Application Client Basic Calculator Sample Application</name>
 
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
-            <url>https://raw.github.com/WASdev/sample.async.websockets/master/LICENSE</url>
+            <url>https://raw.github.com/WASdev/sample.appclient.basiccalc/master/LICENSE</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -50,12 +50,11 @@
                             <groupId>net.wasdev.wlp.sample</groupId>
                             <artifactId>basiccalc-ejb</artifactId>
                         </ejbModule>
-<!--
+                        <!-- appClientModule does not seem to be effective here -->
                         <appClientModule>
                             <groupId>net.wasdev.wlp.sample</groupId>
                             <artifactId>basiccalc-client</artifactId>
                         </appClientModule>
--->
                     </modules>
                 </configuration>
             </plugin>

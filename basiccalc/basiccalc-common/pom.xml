@@ -11,8 +11,8 @@
 
   <artifactId>basiccalc-common</artifactId>
   <packaging>jar</packaging>
-  <name>WAS Liberty Sample - Application Client Basic Calculator Sample Common</name>
-
+  <name>WAS Liberty Sample - Application Client Basic Calculator Sample for Common</name>
+<!--
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -21,4 +21,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+-->  
 </project>
