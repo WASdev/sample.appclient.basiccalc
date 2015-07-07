@@ -1,24 +1,19 @@
 package net.wasdev.sample.basiccalc.ejb;
 
-import javax.ejb.Local;
-import javax.ejb.LocalBean;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 /**
  * Session Bean implementation class BasicCalculatorSessionBean
  */
-@Stateless(mappedName = "BasicCalculator")
-@Local(BasicCalculatorSessionBeanLocal.class)
+@Stateless
 @Remote(BasicCalculatorSessionBeanRemote.class)
-@LocalBean
-public class BasicCalculatorSessionBean implements BasicCalculatorSessionBeanRemote, BasicCalculatorSessionBeanLocal {
+public class BasicCalculatorSessionBean implements BasicCalculatorSessionBeanRemote {
 
     /**
      * Default constructor.
      */
     public BasicCalculatorSessionBean() {
-        // TODO Auto-generated constructor stub
     }
 
     @Override

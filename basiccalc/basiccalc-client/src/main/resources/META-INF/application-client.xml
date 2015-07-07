@@ -3,7 +3,7 @@
    <application-client id="Application-client_ID">
      <description>Basic Calculator Application Client Sample</description>
       <display-name>basiccalc-client</display-name>
-      <ejb-ref id="EjbRef_1">
+      <ejb-ref>
          <ejb-ref-name>ejb/BasicCalculator</ejb-ref-name>
          <lookup-name>java:global/basiccalc-ear/basiccalc-ejb/BasicCalculatorSessionBean!net.wasdev.sample.basiccalc.ejb.BasicCalculatorSessionBeanRemote</lookup-name>
          <ejb-ref-type>Session</ejb-ref-type>

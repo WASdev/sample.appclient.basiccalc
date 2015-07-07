@@ -28,8 +28,8 @@ import net.wasdev.sample.basiccalc.ejb.BasicCalculatorSessionBeanRemote;
 public class BasicCalculatorClient {
 
 	public static void main(String[] args) throws Exception {
-    BasicCalculatorClient basiccalc = new BasicCalculatorClient();
-    basiccalc.doCalculation(args);
+    BasicCalculatorClient basiccalcClient = new BasicCalculatorClient();
+    basiccalcClient.doCalculation(args);
 	}
 
   /**
@@ -67,7 +67,7 @@ public class BasicCalculatorClient {
     }
 
 		try {
-			BasicCalculatorSessionBeanRemote basicCalc = basicCalc = getBasicCalculatorRemoteEJB();
+			BasicCalculatorSessionBeanRemote basicCalc = getBasicCalculatorRemoteEJB();
     	BasicCalculatorClientResult calcResult = calculate(basicCalc,operation,(double)operand1,(double)operand2);
     	printMessage("Result: " + numberFormat.format( new Double (calcResult.getOperand1())) + calcResult.getOperation() + numberFormat.format(new Double(calcResult.getOperand2())) + " = " + numberFormat.format(new Double (calcResult.getResult())) );
 			printMessage("Good bye.\n");
@@ -94,6 +94,9 @@ public class BasicCalculatorClient {
       System.out.println(message);
   }
 
+	// You could use injection like below. We are using application-client.xml in this sample.
+	//@EJB(name="ejb/BasicCalculator" lookup="java:global/basiccalc-ear/basiccalc-ejb/BasicCalculatorSessionBean!net.wasdev.sample.basiccalc.ejb.BasicCalculatorSessionBeanRemote");
+	//BasicCalculatorSessionBeanRemote basicCalc;
   private BasicCalculatorSessionBeanRemote getBasicCalculatorRemoteEJB() throws NamingException {
 		printMessage("\n--Creating InitialContext... ");
     Context context = new InitialContext();
