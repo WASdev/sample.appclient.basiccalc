@@ -22,7 +22,6 @@ basiccalc-wlpcfg
            +- basiccalc.ear                    <- sample application
         +- logs                                <- created by running the client locally
         +- workarea                            <- created by running the client locally
-```
  +- servers
      +- basiccalcServer                        <-- specific server configuration
         +- server.xml                          <-- server configuration
