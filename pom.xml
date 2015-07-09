@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>net.wasdev.wlp.sample</groupId>
-    <artifactId>bom</artifactId>
+    <artifactId>appclient-basiccalc-sample</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>WAS Liberty Sample - Application Client Basic Calculator Sample</name>
