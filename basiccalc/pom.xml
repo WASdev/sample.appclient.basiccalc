@@ -19,6 +19,7 @@
         <module>basiccalc-ejb</module>
         <module>basiccalc-client</module>
         <module>basiccalc-ear</module>
+        <module>basiccalc-wlpcfg</module>
     </modules>
 
     <properties>

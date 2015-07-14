@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="new server">
+    <featureManager>
+      <feature>ejb-3.2</feature>
+      <feature>appClientSupport-1.0</feature>
+    </featureManager>
+	<enterpriseApplication id="basiccalc-id" name="basiccalc" type="ear" location="basiccalc-ear-1.0-SNAPSHOT.ear"/>
+<!--
+  <logging traceSpecification="com.ibm.ws.logging.trace.specification.*=info:EJBContainer=all:LogService=all:com.ibm.ws.clientcontainer.*=all:Naming=all:Injection=all:org.apache.yoko.*=all:IIOP=all:com.ibm.ws.jndi.remote.*=all:com.ibm.ws.container.service.metadata.extended.*=all" maxFileSize="200" maxFiles="20" traceFileName="ejb_server_trace.log"/>
+-->
+</server>
