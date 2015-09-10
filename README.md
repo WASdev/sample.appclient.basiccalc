@@ -6,7 +6,7 @@ The Basic Calculator client sample communicates directly with a stateless sessio
 
 ## Building with maven
 
-This sample can be build using [Apache Maven](http://maven.apache.org/).
+This sample can be built using [Apache Maven](http://maven.apache.org/).
 
 ```bash
 $ mvn install
@@ -34,7 +34,7 @@ basiccalc-wlpcfg
 
 ## Downloading WAS Liberty
 
-There are lots of ways to get your hands on WAS Liberty. Note that you will need a version of Liberty that has support for javaeeClient-7.0, ejb-3.2, and appClientSupport-1.0 for this sample (or javaee-7.0 will do for the server).
+There are lots of ways to get your hands on WAS Liberty. Note that you will need a version of Liberty that has support for javaeeClient-7.0, ejb-3.2, and appClientSupport-1.0 for this sample (or javaee-7.0 will do as well for the server).
 
 To download just the WAS Liberty runtime, go to the [wasdev.net Downloads page][wasdev], and choose between the [latest version of the runtime][wasdev-latest] or the [latest beta][wasdev-beta]. You can also download Liberty via [Eclipse and WDT](#eclipse--wdt)
 
@@ -47,8 +47,6 @@ There are a few options to choose from (especially for the beta drivers): choose
 [wasdev-beta]: https://developer.ibm.com/wasdev/downloads/liberty-profile-beta/
 [installUtility]: http://www-01.ibm.com/support/knowledgecenter/#!/was_beta_liberty/com.ibm.websphere.wlp.nd.multiplatform.doc/ae/rwlp_command_installutility.html
 
-## TBD for Client
-
 ## Eclipse / WDT
 
 The WebSphere Development Tools (WDT) for Eclipse can be used to control the server (start/stop/dump etc.). The tools also support incremental publishing with minimal restarts and works with a debugger to allow you to step through your applications plus many more features including:
@@ -56,7 +54,7 @@ The WebSphere Development Tools (WDT) for Eclipse can be used to control the ser
 * content-assist for server configuration (server configuration is minimal but the tools can help you find what you need)
 * automatic incremental publish of applications so that changes can be written and tested locally without doing a build/publish cycle or restarting the server (the server does restart nice and quickly but it's still nice not being forced to do it!)
 
-Installing WDT on Eclipse is a simple drag and drop process as explained on [wasdev.net][wasdev-wdt].
+Installing WDT on Eclipse is a simple drag and drop process as explained on [wasdev.net][wasdev-wdt]. Note that WDT support for client is not available yet but coming soon.
 
 [wasdev-wdt]: https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/
 
@@ -64,8 +62,8 @@ Installing WDT on Eclipse is a simple drag and drop process as explained on [was
 
 If the sample git repository hasn't been cloned yet, WDT has git tools integrated into the IDE:
 1.  Open the Git repositories view
-* Window -> Show View -> Other
-* Type "git" in the filter box, and select "Git Repositories"
+  * Window -> Show View -> Other
+  * Type "git" in the filter box, and select "Git Repositories"
 2.  Copy Git repo url by finding the textbox under " HTTPS clone URL" at the top of this page, and select "Copy to clipboard"
 3.  In the Git repositories view, select the hyperlink "Clone a Git repository"
 4.  The git repo url should already be filled in.  Select "Next "-> "Next" -> "Finish"
@@ -92,23 +90,46 @@ For the purposes of this sample, we will create the Liberty server (step 3 in th
 2. Add the User directory from the maven project
     1. *Right-click -> Edit* the Runtime Environment created above
     2. Click the `Advanced Options...` link
-        3. If the `basiccalc-wlpcfg` directory is not listed as a User Directory, we need to add it:
-            1. Click New
-            2. Select the basiccalc-wlpcfg project
-            3. Select Finish, OK, Finish
-        4. You should see the `basiccalc-wlpcfg` listed under the Runtime Environment in the Runtime Explorer view.
+    3. If the `basiccalc-wlpcfg` directory is not listed as a User Directory, we need to add it:
+      1. Click New
+      2. Select the basiccalc-wlpcfg project
+      3. Select Finish, OK, Finish
+    4. You should see the `basiccalc-wlpcfg` listed under the Runtime Environment in the Runtime Explorer view.
 3. Create a Server to represent our application and maven configuration in Eclipse
     1. From the Runtime Explorer view, *Right-click* on the basiccalc-wlpcfg user directory associated with the target runtime, and select *New Server*.
     2. The resulting dialog should be pre-populated with the websocketSample Liberty profile server.
     3. Click Finish
 
-#### Running application from WDT
+#### Create a Runtime Environment and a Liberty application client
+
+Currently, application client is not supported in WDT, so We will create the Liberty client from command line. In the following steps, "wlp" is the root directory of the Liberty installation.
+
+1. Create a Liberty client from command line
+  1. From the command-line window, go to wlp/bin
+  2. Enter the command "client create basiccalcClient"
+2. Configure the client
+  1. Copy basiccalc-ear-1.0-SNAPSHOT.ear to wlp/usr/clients/basiccalcClient/apps
+  2. Add <application/> config element to wlp/usr/clients/basiccalcClient/client.xml like below:
+    <application id="BasicCalcClient" name="BasicCalcClient" type="ear" location="basiccalc-ear-1.0-SNAPSHOT.ear"/>
+  3. The client is ready to run. See "Running application client" below
+
+#### Running server application from WDT
 
 1.  Select the "basiccalc-ear" project
 2.  Right-click -> "Run As..." -> "Run On Server"
 3.  Select the "WebShere Application Server under localhost" folder, and select "Finish"
 
-TBD for running application client
+#### Running application client
+
+The following steps will run both client and server on the same computer.
+
+1. Make sure the server and the basic calc application is up and running
+2. Enter the command "client run basiccalcClient -- add 1 2" from the command-line
+3. Verify that the result 3 is printed on the command line window
+
+#### Runnint application client from a remote computer
+
+TBD
 
 ## Tips
 

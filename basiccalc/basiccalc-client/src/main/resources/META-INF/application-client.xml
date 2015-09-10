@@ -5,8 +5,9 @@
      <description>Basic Calculator Application Client Sample</description>
       <ejb-ref>
          <ejb-ref-name>ejb/BasicCalculator</ejb-ref-name>
-         <lookup-name>java:global/basiccalc-ear/basiccalc-ejb/BasicCalculatorSessionBean!net.wasdev.sample.basiccalc.ejb.BasicCalculatorSessionBeanRemote</lookup-name>
          <ejb-ref-type>Session</ejb-ref-type>
+         <lookup-name>java:global/basiccalc-ear/basiccalc-ejb/BasicCalculatorSessionBean!net.wasdev.sample.basiccalc.ejb.BasicCalculatorSessionBeanRemote</lookup-name>
          <remote>net.wasdev.sample.basiccalc.ejb.BasicCalculatorSessionBeanRemote</remote>
+         <ejb-link>BasicCalculator</ejb-link>
       </ejb-ref>
    </application-client>
