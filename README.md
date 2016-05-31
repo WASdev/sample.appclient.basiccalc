@@ -127,7 +127,10 @@ The following steps will run both client and server on the same computer.
 2. Enter the command "client run basiccalcClient -- add 1 2" from the command-line
 3. Verify that the result 3 is printed on the command line window
 
-#### Runnint application client from a remote computer
+#### Running application client from a remote computer
+
+For more common scenarios where the client and the server run on different hosts, the following config elements need to be added to server.xml and client.xml:
+
 
 TBD
 
