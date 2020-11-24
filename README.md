@@ -1,4 +1,8 @@
 # sample.appclient.basiccalc
+
+**This repository is no longer being maintained and has been archived. It is left for reference and available for use as-is with the advisory that it depends old dependencies which may have security vulnerabilties.**
+
+
 The Java EE application client is a Java application program that accesses Java EE services such as enterprise beans, Java Database Connectivity (JDBC) databases, and Java Message Service (JMS) message queues. The Java EE application client program runs on client machines. This program follows the same Java programming model as other Java programs. However, the Java EE application client depends on the application client runtime to configure its execution environment, and uses the Java Naming and Directory Interface (JNDI) name space to access resources.
 
 The Basic Calculator client sample communicates directly with a stateless session bean on a Liberty server. This sample shows how to use a simple stateless session enterprise bean from a Java EE 7 application client.
